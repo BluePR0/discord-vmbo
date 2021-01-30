@@ -1,0 +1,19 @@
+{
+  "name": "quizcord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "BluePR0",
+  "license": "ISC",
+  "dependencies": {
+    "co": "^4.6.0",
+    "discord-economy": "^1.2.2",
+    "discord.js": "^12.4.1",
+    "json": "^10.0.0",
+    "node.fetch": "^1.0.0",
+    "sequelize": "^6.5.0"
+  }
+}
