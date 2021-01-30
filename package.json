@@ -2,9 +2,7 @@
   "name": "VMBO",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
-  "scripts": {
-    "start": "main.js"
+  "main": "start.js",
   },
   "author": "BluePR0",
   "license": "ISC",
