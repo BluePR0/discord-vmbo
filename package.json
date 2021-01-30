@@ -1,10 +1,12 @@
 {
-  "name": "quizcord",
+  "name": "VMBO",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "start": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+	"start": "main.js"
   },
   "author": "BluePR0",
   "license": "ISC",
