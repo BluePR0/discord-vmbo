@@ -117,5 +117,6 @@ client.on('message', async message => {
     const answers = ["Ja!", "Nee.", "Misschien.", "No man.", `Nee, wel ${randMember}.`, "Sowieso.", "Tuurlijk niet man. STOOPID!", "Ofkors.", `Ja, ${randMember} ook.`];
     const random = Math.floor(Math.random() * months.length);
     message.channel.send(answers[random]);
+    console.log(answers[random]);
 });
 
