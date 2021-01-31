@@ -111,10 +111,11 @@ client.on('message', async message => {
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
-
+    console.log('Ja of Nee.');
     const members = await message.guild.members.fetch();
     const randMember = members.random(); 
     const answers = ["Ja!", "Nee.", "Misschien.", "No man.", `Nee, wel ${randMember}.`, "Sowieso.", "Tuurlijk niet man. STOOPID!", "Ofkors.", `Ja, ${randMember} ook.`];
-    message.channel.send(answers);
+    const random = Math.floor(Math.random() * months.length);
+    message.channel.send(random);
 });
 
