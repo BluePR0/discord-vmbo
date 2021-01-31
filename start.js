@@ -33,6 +33,11 @@ client.on('message', async message => {
     const command = args.shift().toLowerCase();
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
+    if(command == 'help')
+    {
+        message.channel.send('Type [-start] to start or [-bal] to see your balance.');
+    }
+
     if(command == 'start')
     {
         var output = await eco.FetchBalance(message.author.id)
@@ -40,7 +45,7 @@ client.on('message', async message => {
         
         eco.SubtractFromBalance(message.author.id, 5);
 
-        msg = await message.channel.send('$26 Max');
+        msg = await message.channel.send('$25 Max. Type -C to CASHOUT!');
         var value = 0;
         var maxValue = Math.floor(Math.random() * 26);
         console.log(maxValue);
@@ -48,7 +53,7 @@ client.on('message', async message => {
         stop = false;
         do
         {
-            await delay(2000);
+            await delay(2000 * Math.floor(Math.random() * 1000));
                 value++;
                 //var response = message.channel.send('Prize is: $' + value.toString());
                 
@@ -58,6 +63,8 @@ client.on('message', async message => {
         if(stop)
         {
             message.channel.send('You won ' + value + ' coins!');
+            var output = await eco.FetchBalance(message.author.id)
+            message.channel.send(`You own ${output.balance} coins now.`);
             eco.AddToBalance(message.author.id, value);
         }
         if(value >= maxValue)
@@ -78,12 +85,18 @@ client.on('message', async message => {
         stop = true;
     }
 
-    if(command == 'add')
+    if(command == 'free')
     {
         eco.AddToBalance(message.author.id, 5);
     }
 
     if (command === 'bal') {
+ 
+        var output = await eco.FetchBalance(message.author.id)
+        message.channel.send(`You own ${output.balance} coins.`);
+      }
+
+      if (command === 'balance') {
  
         var output = await eco.FetchBalance(message.author.id)
         message.channel.send(`You own ${output.balance} coins.`);
