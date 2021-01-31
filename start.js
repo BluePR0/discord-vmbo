@@ -53,7 +53,7 @@ client.on('message', async message => {
         stop = false;
         do
         {
-            await delay(2000 * Math.floor(Math.random() * 1000));
+            await delay(2000 + Math.floor(Math.random() * 1000));
                 value++;
                 //var response = message.channel.send('Prize is: $' + value.toString());
                 
