@@ -63,7 +63,7 @@ client.on('message', async message => {
         if(stop)
         {
             msg.edit('Prize is: $' + (value - 1).toString())
-            message.channel.send('You won ' + value -1 + ' coins!');
+            message.channel.send('You won ' + (value - 1) + ' coins!');
             var output = await eco.FetchBalance(message.author.id)
             message.channel.send(`You own ${output.balance} coins now.`);
             eco.AddToBalance(message.author.id, value);
