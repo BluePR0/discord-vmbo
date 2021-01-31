@@ -102,5 +102,19 @@ client.on('message', async message => {
         var output = await eco.FetchBalance(message.author.id)
         message.channel.send(`You own ${output.balance} coins.`);
       }
+
+    
+});
+
+client.on('message', async message => {
+    if (!message.content.startsWith('/') || message.author.bot) return;
+
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    const members = await message.guild.members.fetch();
+    const randMember = members.random(); 
+    const answers = ["Ja!", "Nee.", "Misschien.", "No man.", `Nee, wel ${randMember}.`, "Sowieso.", "Tuurlijk niet man. STOOPID!", "Ofkors.", `Ja, ${randMember} ook.`];
+    message.channel.send(answers);
 });
 
