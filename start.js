@@ -136,7 +136,7 @@ client.on('message', async message => {
 
      output = await eco.FetchBalance(message.author.id)
      console.log(output + 'And: ' + parseInt(command));
-    if(output < parseInt(command))
+    if(output.balance < parseInt(command))
     {
         message.channel.send('You need ' + command + " more $$$.");
     }
@@ -154,7 +154,7 @@ client.on('message', async message => {
     var rdm = (Math.floor(Math.random() * 10));
     var rdmTime = (Math.floor(Math.random() * 5000));
     for (let step = 0; step < 10; step++) {
-        toggle = !toggle;
+        await delay(2000);
         if(toggle = true)
         {
             msg.edit(":white_check_mark:")
@@ -163,7 +163,7 @@ client.on('message', async message => {
         {
             msg.edit(":red_circle:")
         }
-        await delay(2000);
+        toggle = !toggle;
       }
 
     if(random < d)
