@@ -143,27 +143,27 @@ client.on('message', async message => {
     var toggle = true;
     var rdm = (Math.floor(Math.random() * 10));
     var rdmTime = (Math.floor(Math.random() * 5000));
-    for (let step = 0; step < rdm; step++) {
+    for (let step = 0; step < 5; step++) {
         toggle = !toggle;
         if(toggle = true)
         {
-            msg.edit("✔️")
+            msg.edit(":white_check_mark:")
         }
         else
         {
-            msg.edit("❌")
+            msg.edit(":negative_squared_cross_mark:")
         }
         await delay(rdmTime);
       }
 
     if(random < d)
     {
-        msg.edit("✔️");
+        msg.edit(":white_check_mark:");
         message.channel.send('Nice! You won $' + command + ".");
     }
     else
     {
-        msg.edit("❌");
+        msg.edit(":negative_squared_cross_mark:");
         message.channel.send('Shit! You lost $' + command + ".");
     }
 }
