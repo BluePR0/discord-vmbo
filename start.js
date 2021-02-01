@@ -150,22 +150,19 @@ client.on('message', async message => {
     const random = Math.floor(Math.random() * b);
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
-    var toggle = true;
-    var rdm = (Math.floor(Math.random() * 10));
-    var rdmTime = (Math.floor(Math.random() * 5000));
-    for (let step = 0; step < 10; step++) {
+        await delay(1000);
+        msg.edit(":white_check_mark:")
+        await delay(1000);
+        msg.edit(":red_circle:")
+        await delay(1500);
+        msg.edit(":white_check_mark:")
+        await delay(1500);
+        msg.edit(":red_circle:")
         await delay(2000);
-        if(toggle = true)
-        {
-            msg.edit(":white_check_mark:")
-        }
-        else
-        {
-            msg.edit(":red_circle:")
-        }
-        toggle = !toggle;
-      }
-
+        msg.edit(":white_check_mark:")
+        await delay(2000);
+        msg.edit(":red_circle:")
+        await delay(2000);
     if(random < d)
     {
         msg.edit(":white_check_mark:");
