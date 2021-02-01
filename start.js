@@ -138,7 +138,7 @@ client.on('message', async message => {
     var d = parseInt(command);
     var b = d * 2;
     const random = Math.floor(Math.random() * b);
-
+    const delay = ms => new Promise(res => setTimeout(res, ms));
     
     var toggle = true;
     var rdm = (Math.floor(Math.random() * 10));
