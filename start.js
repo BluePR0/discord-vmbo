@@ -166,7 +166,8 @@ client.on('message', async message => {
     if(random < d)
     {
         msg.edit(":white_check_mark:");
-        message.channel.send('Nice! You won $' + command + ".");
+        message.channel.send('Nice! You won $' + (parseInt(command) * 2).toLocaleString() + ".");
+        eco.AddToBalance(message.author.id, parseInt(command) * 2);
     }
     else
     {
