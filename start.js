@@ -135,6 +135,7 @@ client.on('message', async message => {
     {
 
      output = await eco.FetchBalance(message.author.id)
+     console.log(output + 'And: ' + parseInt(command));
     if(output < parseInt(command))
     {
         message.channel.send('You need ' + command + " more $$$.");
@@ -160,7 +161,7 @@ client.on('message', async message => {
         }
         else
         {
-            msg.edit(":negative_squared_cross_mark:")
+            msg.edit(":red_circle:")
         }
         await delay(2000);
       }
@@ -172,7 +173,7 @@ client.on('message', async message => {
     }
     else
     {
-        msg.edit(":negative_squared_cross_mark:");
+        msg.edit(":red_circle:");
         message.channel.send('Shit! You lost $' + command + ".");
     }
 }
