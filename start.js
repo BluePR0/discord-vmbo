@@ -11,6 +11,8 @@ client.on('ready', () => {
     console.log("Bot is logged on");
 })
 
+
+
 client.on('message', async message => {
     if (!message.content.startsWith('.') || message.author.bot) return;
 
@@ -123,7 +125,18 @@ client.on('message', async message => {
         message.channel.send(`You own ${output.balance} coins.`);
       }
 
-    
+      
+
+    if (command === 'spam') {
+
+        const delay = ms => new Promise(res => setTimeout(res, ms));
+        var tijd = 0;
+        while (tijd <= 1000) {
+            message.channel.send(message.author + ' Laat mij dit spammen!!!');
+            await delay(1000);
+            tijd += 1;
+        }
+      }
 });
 
 client.on('message', async message => {
