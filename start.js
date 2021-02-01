@@ -134,16 +134,25 @@ client.on('message', async message => {
     if(isNumeric(command))
     {
 
+     output = await eco.FetchBalance(message.author.id)
+    if(output < parseInt(command))
+    {
+        message.channel.send('You need ' + command + " more $$$.");
+    }
+    else{
+
+    eco.SubtractFromBalance(message.author.id, parseInt(command));
+
     msg = await message.channel.send('We are playing "Accept or Decline!" You gave the ATM $' + command + ".");
     var d = parseInt(command);
     var b = d * 2;
     const random = Math.floor(Math.random() * b);
     const delay = ms => new Promise(res => setTimeout(res, ms));
-    
+
     var toggle = true;
     var rdm = (Math.floor(Math.random() * 10));
     var rdmTime = (Math.floor(Math.random() * 5000));
-    for (let step = 0; step < 5; step++) {
+    for (let step = 0; step < 10; step++) {
         toggle = !toggle;
         if(toggle = true)
         {
@@ -153,7 +162,7 @@ client.on('message', async message => {
         {
             msg.edit(":negative_squared_cross_mark:")
         }
-        await delay(rdmTime);
+        await delay(2000);
       }
 
     if(random < d)
@@ -167,5 +176,6 @@ client.on('message', async message => {
         message.channel.send('Shit! You lost $' + command + ".");
     }
 }
+    }
 })
 
