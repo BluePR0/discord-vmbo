@@ -121,3 +121,51 @@ client.on('message', async message => {
     console.log(answers[random]);
 });
 
+client.on('message', async message => {
+    if (!message.content.startsWith('$') || message.author.bot) return;
+
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    function isNumeric(value) {
+        return /^-?\d+$/.test(value);
+    }
+
+    if(isNumeric(command))
+    {
+
+    msg = await message.channel.send('We are playing "Accept or Decline!" You gave the ATM $' + command + ".");
+    var d = parseInt(command);
+    var b = d * 2;
+    const random = Math.floor(Math.random() * b);
+
+    
+    var toggle = true;
+    var rdm = (Math.floor(Math.random() * 10));
+    var rdmTime = (Math.floor(Math.random() * 5000));
+    for (let step = 0; step < rdm; step++) {
+        toggle = !toggle;
+        if(toggle = true)
+        {
+            msg.edit("✔️")
+        }
+        else
+        {
+            msg.edit("❌")
+        }
+        await delay(rdmTime);
+      }
+
+    if(random < d)
+    {
+        msg.edit("✔️");
+        message.channel.send('Nice! You won $' + command + ".");
+    }
+    else
+    {
+        msg.edit("❌");
+        message.channel.send('Shit! You lost $' + command + ".");
+    }
+}
+})
+
