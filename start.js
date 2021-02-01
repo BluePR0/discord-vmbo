@@ -27,6 +27,26 @@ client.on('message', async message => {
 })
 
 client.on('message', async message => {
+    if (!message.content.startsWith('*') || message.author.bot) return;
+
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+
+    message.channel.send('Win $1.000.000 if you crack the code. (Example: 1234)');
+    var code = (Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9) + Math.floor(Math.random() * 9)).toLocaleString();
+
+    if(command == code)
+    {
+        message.channel.send('You won $1.000.000!!!');
+        eco.AddToBalance(message.author.id, 1000000);
+    }
+    else
+    {
+        message.channel.send('Wrong Code.');
+    }
+})
+
+client.on('message', async message => {
     if (!message.content.startsWith('-') || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
